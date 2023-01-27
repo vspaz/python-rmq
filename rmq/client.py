@@ -1,12 +1,14 @@
 import asyncio
 import json
 import logging
+from config import Config
 
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
 
 
 class Client:
-    _conn = 'amqp://guest:guest@localhost:5672/'
+    def __init__(self, config: Config):
+        self._conn = f'amqp://{config.user}:{config.password}@{config.host}:{config.port}/'
 
     async def _establish_connection(self):
         return await connect(
