@@ -1,0 +1,6 @@
+__title__ = "rmq"
+__description__ = "rmq"
+__url__ = "https://github.com/vspaz/python-rmq"
+__author__ = "vspaz"
+__maintainer__ = "vspaz"
+__version__ = "v0.1.0"
