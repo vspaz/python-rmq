@@ -1,2 +1,2 @@
-aio-pika==8.3.0
+aio-pika==9.0.5
 uvloop==0.17.0
