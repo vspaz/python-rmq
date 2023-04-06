@@ -1,7 +1,10 @@
 import asyncio
 import logging
+import uvloop
 
 from client import Client
+
+uvloop.install()
 
 
 def run():
