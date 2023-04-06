@@ -24,3 +24,10 @@ unify:
 
 trail-comma:
 	  find . -name '*.py' -exec add-trailing-comma {} +
+
+.PHONY: lint
+lint:
+	sh -c "isort . "
+	unify -r -i --quote '"' .
+	trim .
+	find . -name '*.py' -exec add-trailing-comma {} +

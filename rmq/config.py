@@ -9,4 +9,3 @@ class Config:
     port: str = 5672
 
     timeout: int = 10
-    
