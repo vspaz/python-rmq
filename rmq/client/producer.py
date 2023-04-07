@@ -1,7 +1,7 @@
 import asyncio
 import logging
-import uvloop
 
+import uvloop
 from client import Client
 
 uvloop.install()
