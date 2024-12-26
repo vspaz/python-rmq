@@ -1,5 +1,5 @@
 aiomisc==17.5.29
 aio-pika==9.5.4
+setuptools==75.6.0
 ujson==5.10.0
 uvloop==0.21.0
-setuptools==75.6.0
