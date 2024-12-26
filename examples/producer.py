@@ -1,9 +1,9 @@
 import asyncio
 
 import uvloop
+from config import Config
 
 from rmq.client import Client
-from config import Config
 
 uvloop.install()
 

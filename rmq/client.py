@@ -1,10 +1,10 @@
 import asyncio
 import logging
-from .__version__ import __version__
-
 
 import ujson
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
+
+from .__version__ import __version__
 
 
 class Client:
