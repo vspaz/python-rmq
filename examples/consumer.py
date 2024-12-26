@@ -5,8 +5,8 @@ import ujson
 import uvloop
 from aio_pika import IncomingMessage
 
-from .client import Client
-from ..config import Config
+from rmq.client import Client
+from config import Config
 
 uvloop.install()
 

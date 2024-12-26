@@ -1,20 +1,21 @@
 import asyncio
 import logging
 
+
 import ujson
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
-from ..config import Config
 
 
 class Client:
-    def __init__(self, config: Config):
+    def __init__(self, config):
+        self._config = config
         self._conn = f"amqp://{config.user}:{config.password}@{config.host}:{config.port}/"
 
     async def _establish_connection(self):
         return await connect(
             url=self._conn,
             loop=asyncio.get_running_loop(),
-            timeout=10,
+            timeout=self._config.connection_timeout,
         )
 
     async def subscribe(self, queue_name, on_message):
