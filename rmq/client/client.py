@@ -3,7 +3,7 @@ import logging
 
 import ujson
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
-from config import Config
+from ..config import Config
 
 
 class Client:
@@ -46,4 +46,4 @@ class Client:
         )
         logging.debug(f"sent: {message!r}")
         await connection.close()
-        return {"status": "accepted"}
+        return dict(status="accepted")

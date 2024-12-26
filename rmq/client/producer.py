@@ -2,13 +2,15 @@ import asyncio
 import logging
 
 import uvloop
-from client import Client
+
+from .client import Client
+from ..config import Config
 
 uvloop.install()
 
 
 def run():
-    rmq_client = Client()
+    rmq_client = Client(Config())
     logging.info("rabbitmq client initialized")
     asyncio.run(
         rmq_client.publish(
