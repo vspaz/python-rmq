@@ -1,4 +1,5 @@
 import logging
+import os
 
 import aiomisc
 import ujson
@@ -28,9 +29,9 @@ async def listen_for_messages(rmq_client: Client):
 
 def run():
     with aiomisc.entrypoint() as loop:
-        rmq_client = Client(Config())
-        logging.info("rabbitmq client initialized")
+        rmq_client = Client(config=Config())
         loop.create_task(listen_for_messages(rmq_client=rmq_client))
+        logging.info("consumer (PID=%d) started: ok", os.getpid())
         loop.run_forever()
 
 

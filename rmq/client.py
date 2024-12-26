@@ -1,5 +1,6 @@
 import asyncio
 import logging
+from .__version__ import __version__
 
 
 import ujson
@@ -10,6 +11,7 @@ class Client:
     def __init__(self, config):
         self._config = config
         self._conn = f"amqp://{config.user}:{config.password}@{config.host}:{config.port}/"
+        logging.info("client '%s' initialized: ok", __version__)
 
     async def _establish_connection(self):
         return await connect(
@@ -23,7 +25,7 @@ class Client:
         channel = await connection.channel()
         await channel.set_qos(prefetch_count=8)
         queue = await channel.declare_queue(queue_name, durable=True)
-        logging.info(f"{queue_name} starting to consume messages")
+        logging.info(f"queue '{queue_name}' starting to consume messages")
         await queue.consume(on_message)
 
     async def publish(self, body, routing_key):

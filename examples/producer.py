@@ -1,5 +1,4 @@
 import asyncio
-import logging
 
 import uvloop
 
@@ -10,8 +9,7 @@ uvloop.install()
 
 
 def run():
-    rmq_client = Client(Config())
-    logging.info("rabbitmq client initialized")
+    rmq_client = Client(config=Config())
     asyncio.run(
         rmq_client.publish(
             body={"python": "test"},
