@@ -1,7 +1,7 @@
 .PHONY: install
 
 isort:
-	  isort .
+	  python3 -m isort .
 
 test:
 	  python3 -m pytest . -v
@@ -19,15 +19,11 @@ clean-pyc:
 trim:
 	  trim .
 
-unify:
-	  unify -r -i --quote '"' .
-
 trail-comma:
 	  find . -name '*.py' -exec add-trailing-comma {} +
 
 .PHONY: lint
 lint:
-	sh -c "isort . "
-	unify -r -i --quote '"' .
+	sh -c "python3 -m isort . "
 	trim .
 	find . -name '*.py' -exec add-trailing-comma {} +

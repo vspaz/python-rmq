@@ -1,7 +1,7 @@
 import asyncio
-import ujson
 import logging
 
+import ujson
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
 from config import Config
 
