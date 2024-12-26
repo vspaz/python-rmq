@@ -1,2 +1,4 @@
-aio-pika==9.0.5
-uvloop==0.17.0
+aiomisc==17.5.29
+aio-pika==9.5.4
+uvloop==0.21.0
+ujson==5.10.0

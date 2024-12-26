@@ -1,5 +1,5 @@
 import asyncio
-import json
+import ujson
 import logging
 
 from aio_pika import DeliveryMode, ExchangeType, Message, connect
@@ -36,7 +36,7 @@ class Client:
         queue = await channel.declare_queue(name="test", durable=True)
         await queue.bind(exchange=exchange)
         message = Message(
-            body=json.dumps(obj=body).encode(),
+            body=ujson.dumps(obj=body).encode(),
             content_type="application/json",
             delivery_mode=DeliveryMode.PERSISTENT,
         )
